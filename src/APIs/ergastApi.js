@@ -1,156 +1,292 @@
 export const BaseUrl = "https://api.jolpi.ca/ergast/f1/"
 
 async function FetchDriverStandings1(year) {
-    const res = await fetch(`${BaseUrl}${year}/driverstandings/`)
-    const data = await res.json();
-    return data.MRData.StandingsTable.StandingsLists[0].DriverStandings
+    try {
+        const res = await fetch(`${BaseUrl}${year}/driverstandings`)
+        const data = await res.json();
+        return data.MRData.StandingsTable.StandingsLists[0].DriverStandings
+    }catch(err) {
+        console.error("Failed to fetch DriverStandings:", err.message);
+        return [];
+    }
 }
+
 async function FetchConstructorsStandings(Cyear) {
-    const res = await fetch(`${BaseUrl}${Cyear}/constructorstandings/`)
-    const data = await res.json();
-    return data.MRData.StandingsTable.StandingsLists[0].ConstructorStandings
+    try {
+        const res = await fetch(`${BaseUrl}${Cyear}/constructorstandings/`)
+        const data = await res.json();
+        return data.MRData.StandingsTable.StandingsLists[0].ConstructorStandings
+    }catch(err) {
+        console.error("Failed to fetchConstructorsStandings", err.message);
+        return [];
+    }
 }
 async function FetchRaces(){
-    const res = await fetch(`${BaseUrl}/2025/races/`)
-    const data = await res.json();
-    return data.MRData.RaceTable.Races
+    try {
+        const res = await fetch(`${BaseUrl}/2025/races/`)
+        const data = await res.json();
+        return data.MRData.RaceTable.Races
+    }catch (err) {
+        console.error("Failed to fetchRaces", err.message);
+        return [];
+    }
 }
 async function FetchResults1(round){
-    const res = await fetch(`${BaseUrl}/2025/${round}/results/`)
-    const data = await res.json();
-    return data.MRData.RaceTable.Races;
+    try {
+        const res = await fetch(`${BaseUrl}/2025/${round}/results/`)
+        const data = await res.json();
+        return data.MRData.RaceTable.Races;
+    }catch (err){
+        console.error("Failed to fetch Races", err.message);
+        return [];
+    }
 }
 
 export async function FetchDrivers() {
-    const res = await fetch(`${BaseUrl}2025/drivers/`)
-    const data = await res.json();
-    const drivers = data.MRData.DriverTable.Drivers;
-    return drivers.map(drivers => drivers.givenName)
+    try {
+        const res = await fetch(`${BaseUrl}2025/drivers/`)
+        const data = await res.json();
+        const drivers = data.MRData.DriverTable.Drivers;
+        return drivers.map(drivers => drivers.givenName)
+    }catch(err) {
+        console.error("Failed to fetch Drivers", err.message);
+        return [];
+    }
 }
-export async function FetchDriverPosition(year) {
-    const driver = await FetchDriverStandings1(year);
-    return driver.map(driver => driver.position)
 
+export async function FetchDriverPosition(year) {
+    try {
+        const driver = await FetchDriverStandings1(year);
+        return driver.map(driver => driver.position)
+    }catch(err) {
+        console.error("Failed to fetch Drivers", err.message);
+        return [];
+    }
 }
+
 export async function FetchDriverByName(year){
-    const drivers = await FetchDriverStandings1(year);
-    return drivers.map(driver => driver.Driver.givenName)
+    try {
+        const drivers = await FetchDriverStandings1(year);
+        return drivers.map(driver => driver.Driver.givenName)
+    }catch(err) {
+        console.error("Failed to fetch Drivers Name", err.message);
+        return [];
+    }
 }
 export async function FetchDriverLastname(year){
-    const drivers = await FetchDriverStandings1(year);
-    return drivers.map(driver => driver.Driver.familyName)
+    try {
+        const drivers = await FetchDriverStandings1(year);
+        return drivers.map(driver => driver.Driver.familyName)
+    }catch (err){
+        console.error("Failed to fetch Drivers Lastname", err.message);
+        return [];
+    }
 }
 
 export async function FetchDriverStandings(year) {
-    const drivers = await FetchDriverStandings1(year);
-    return drivers.map(driver => driver.Driver.code)
+    try {
+        const drivers = await FetchDriverStandings1(year);
+        return drivers.map(driver => driver.Driver.code)
+    }catch(err) {
+        console.error("Failed to fetch Drivers Code", err.message);
+        return [];
+    }
 }
 
 export async function FetchPoints(year) {
-    const drivers = await FetchDriverStandings1(year)
-    return drivers.map(driver => driver.points)
+    try {
+        const drivers = await FetchDriverStandings1(year)
+        return drivers.map(driver => driver.points)
+    }catch(err) {
+        console.error("Failed to fetch Drivers Points", err.message);
+    }
 }
 export async function FetchWins(year) {
-    const drivers = await FetchDriverStandings1(year)
-    return drivers.map(driver => driver.wins)
+    try {
+        const drivers = await FetchDriverStandings1(year)
+        return drivers.map(driver => driver.wins)
+    }catch(err) {
+        console.error("Failed to fetch Drivers Wins", err.message);
+        return [];
+    }
 }
 
 export async function FetchConstructorsD(year) {
-    const drivers = await FetchDriverStandings1(year)
-    return drivers.map(driver => driver.Constructors[0].name)
+    try {
+        const drivers = await FetchDriverStandings1(year)
+        return drivers.map(driver => driver.Constructors[0].name)
+    }catch(err) {
+        console.error("Failed to fetch ConstructorsDrivers", err.message);
+        return [];
+    }
 }
 
 export async function FetchDnumber(year) {
-    const drivers = await FetchDriverStandings1(year)
-    return drivers.map(driver => driver.Driver.permanentNumber)
+    try {
+        const drivers = await FetchDriverStandings1(year)
+        return drivers.map(driver => driver.Driver.permanentNumber)
+    }catch(err) {
+        console.error("Failed to fetch DriverNumber", err.message);
+        return [];
+    }
 }
 
 export async function FetchConstructors(Cyear) {
-    const constructors = await FetchConstructorsStandings(Cyear)
-    return constructors.map(constructors => constructors.Constructor.name)
-
+    try {
+        const constructors = await FetchConstructorsStandings(Cyear)
+        return constructors.map(constructors => constructors.Constructor.name)
+    }catch(err) {
+        console.error("Failed to fetchConstructors", err.message);
+        return []
+    }
 }
+
 export async function FetchConstructorsPoints(Cyear) {
-    const constructors = await FetchConstructorsStandings(Cyear)
-    return constructors.map(constructors => constructors.points)
+    try {
+        const constructors = await FetchConstructorsStandings(Cyear)
+        return constructors.map(constructors => constructors.points)
+    }catch(err) {
+        console.error("Failed to fetchConstructorsPoints", err.message);
+        return [];
+    }
 }
 export async function FetchConstructorsWins(Cyear) {
-    const constructors = await FetchConstructorsStandings(Cyear);
-    return constructors.map(c => c.wins)
+    try {
+        const constructors = await FetchConstructorsStandings(Cyear);
+        return constructors.map(c => c.wins)
+    }catch(err) {
+        console.error("Failed to fetchConstructors Wins", err.message);
+        return [];
+    }
 }
 
 export async function FetchCircuits(){
-    const races = await FetchRaces()
-    const ret =  races.map(races => races.raceName)
-    const images = []
-    for(let i=0;i<ret.length;i++){
-        images.push(`<img src="src/assets/map/${ret[i]}.png" alt="name"/>`)
+    try {
+        const races = await FetchRaces()
+        const ret = races.map(races => races.raceName)
+        const images = []
+        for (let i = 0; i < ret.length; i++) {
+            images.push(`<img src="src/assets/map/${ret[i]}.png" alt="name"/>`)
+        }
+        return images
+    }catch(err) {
+        console.error("Failed to fetchCircuits IMG", err.message);
+        return [];
     }
-    return images
 }
 
 export async function FetchDriverIMG(year){
-    const drivers = await FetchDriverStandings1(year);
-    const names = drivers.map(driver => driver.Driver.givenName)
-    const images = []
-    for(let i=0;i<20;i++){
-        images.push(`<img src="src/assets/Drivers/${names[i]}.png" alt="name"/>`)
+    try {
+        const drivers = await FetchDriverStandings1(year);
+        const names = drivers.map(driver => driver.Driver.givenName)
+        const images = []
+        for (let i = 0; i < 20; i++) {
+            images.push(`<img src="src/assets/Drivers/${names[i]}.png" alt="name"/>`)
+        }
+        return images
+    }catch(err) {
+        console.error("Failed to fetchDriverIMG", err.message);
+        return [];
     }
-    return images
 }
 export async function FetchConstructorsIMG(Cyear){
-    const constructors = await FetchConstructorsStandings(Cyear);
-    const names = constructors.map(c => c.Constructor.name)
-    const images = []
-    for(let i=0;i<names.length;i++){
-        images.push(`<img src="src/assets/Cars/${names[i]}.png" alt="name"/>`)
+    try {
+        const constructors = await FetchConstructorsStandings(Cyear);
+        const names = constructors.map(c => c.Constructor.name)
+        const images = []
+        for (let i = 0; i < names.length; i++) {
+            images.push(`<img src="src/assets/Cars/${names[i]}.png" alt="name"/>`)
+        }
+        return images;
+    }catch(err) {
+        console.error("Failed to fetchConstructorsIMG", err.message);
+        return [];
     }
-    return images;
 }
 
 export async function FetchDriverIMG2(team){
-    const drivers = await fetch(`https://api.jolpi.ca/ergast/f1/2025/constructors/${team}/drivers/`);
-    const res = await drivers.json();
-    const result =  res.MRData.DriverTable.Drivers;
-    const names = result.map(drivers => drivers.givenName)
-    const images = []
-    for(let i=0;i<20;i++){
-        images.push(`<img src="src/assets/Drivers/${names[i]}.png" alt="name"/>`)
+    try {
+        const drivers = await fetch(`https://api.jolpi.ca/ergast/f1/2025/constructors/${team}/drivers/`);
+        const res = await drivers.json();
+        const result = res.MRData.DriverTable.Drivers;
+        const names = result.map(drivers => drivers.givenName)
+        const images = []
+        for (let i = 0; i < 20; i++) {
+            images.push(`<img src="src/assets/Drivers/${names[i]}.png" alt="name"/>`)
+        }
+        return images
+    }catch (err){
+        console.error("Failed to fetchDriverIMG2", err.message);
+        return [];
     }
-    return images
 }
 
 export async function FetchConstructorsPosition(Cyear){
-    const constructors = await FetchConstructorsStandings(Cyear);
-    return constructors.map(constructors => constructors.position)
+    try {
+        const constructors = await FetchConstructorsStandings(Cyear);
+        return constructors.map(constructors => constructors.position)
+    }catch(err) {
+        console.error("Failed to fetchConstructorsPosition", err.message);
+        return [];
+    }
 }
 
 export async function FetchRaceName(){
-    const races = await FetchRaces()
-    return races.map(races => races.raceName)
+    try {
+        const races = await FetchRaces()
+        return races.map(races => races.raceName)
+    }catch(err) {
+        console.error("Failed to fetchRaceName", err.message);
+        return [];
+    }
 }
 
 export async function FetchRaceRound(){
-    const races = await FetchRaces()
-    return races.map(races => races.round)
+    try {
+        const races = await FetchRaces()
+        return races.map(races => races.round)
+    }catch(err) {
+        console.error("Failed to fetchRaceRound", err.message);
+        return [];
+    }
 }
 export async function FetchRaceDate(){
-    const races = await FetchRaces();
-    return races.map(races => races.date)
+    try {
+        const races = await FetchRaces();
+        return races.map(races => races.date)
+    }catch(err) {
+        console.error("Failed to fetchRaceDate", err.message);
+        return [];
+    }
 }
 export async function FetchRaceCountry(){
-    const races = await FetchRaces();
-    return races.map(races => races.Circuit.Location.country)
+    try {
+        const races = await FetchRaces();
+        return races.map(races => races.Circuit.Location.country)
+    }catch(err) {
+        console.error("Failed to fetchRaceCountry", err.message);
+        return [];
+    }
 }
 export async function FetchRaceCity(){
-    const races = await FetchRaces();
-    return races.map(races => races.Circuit.Location.locality)
+    try {
+        const races = await FetchRaces();
+        return races.map(races => races.Circuit.Location.locality)
+    }catch(err) {
+        console.error("Failed to fetchRaceCity", err.message);
+        return [];
+    }
 }
 
 export async function FetchResults(round){
-    const races = await FetchResults1(round)
-    const results = races[0].Results;
-    return results.map(r => r.Driver.code);
+    try {
+        const races = await FetchResults1(round)
+        const results = races[0].Results;
+        return results.map(r => r.Driver.code);
+    }catch(err) {
+        console.error("Failed to fetchResults", err.message);
+        return [];
+    }
 }
 
 export async function FetchResultTimes(round) {
@@ -163,56 +299,111 @@ export async function FetchResultTimes(round) {
 }
 
 export async function FetchResultNum(round){
-    const races = await FetchResults1(round);
-    const results = races[0].Results;
-    return results.map(r => r.number)
+    try {
+        const races = await FetchResults1(round);
+        const results = races[0].Results;
+        return results.map(r => r.number)
+    }catch(err) {
+        console.error("Failed to fetchResultNum", err.message);
+        return [];
+    }
 }
 export async function FetchResultPoints(round){
-    const races = await FetchResults1(round)
-    const results = races[0].Results;
-    return results.map(races => races.points);
+    try {
+        const races = await FetchResults1(round)
+        const results = races[0].Results;
+        return results.map(races => races.points);
+    }catch(err) {
+        console.error("Failed to fetchResultPoints", err.message);
+        return [];
+    }
 }
 export async function FetchResultPosition(round){
-    const races = await FetchResults1(round)
-    const results = races[0].Results;
-    return results.map(races => races.position)
+    try {
+        const races = await FetchResults1(round)
+        const results = races[0].Results;
+        return results.map(races => races.position)
+    }catch(err) {
+        console.error("Failed to fetchResultPosition", err.message);
+        return [];
+    }
 }
 export async function FetchResultConstructors(round){
-    const races = await FetchResults1(round)
-    const results = races[0].Results;
-    return results.map(races => races.Constructor.name);
+    try {
+        const races = await FetchResults1(round)
+        const results = races[0].Results;
+        return results.map(races => races.Constructor.name);
+    }catch (err){
+        console.error("Failed to fetchResultConstructors", err.message);
+        return [];
+    }
 }
 export async function FetchCID(Cyear){
-    const constructors = await FetchConstructorsStandings(Cyear)
-    return  constructors.map(constructors => constructors.Constructor.constructorId)
+    try {
+        const constructors = await FetchConstructorsStandings(Cyear)
+        return constructors.map(constructors => constructors.Constructor.constructorId)
+    }catch(err) {
+        console.error("Failed to fetchCID", err.message);
+        return [];
+    }
 }
 export async function FetchDriversOf(team){
-    const drivers = await fetch(`https://api.jolpi.ca/ergast/f1/2025/constructors/${team}/drivers/`);
-    const res = await drivers.json();
-    const result =  res.MRData.DriverTable.Drivers;
-    return result.map(drivers => drivers.givenName)
+    try {
+        const drivers = await fetch(`https://api.jolpi.ca/ergast/f1/2025/constructors/${team}/drivers/`);
+        const res = await drivers.json();
+        const result = res.MRData.DriverTable.Drivers;
+        return result.map(drivers => drivers.givenName)
+    }catch(err) {
+        console.error("Failed to fetchDrivers", err.message);
+        return [];
+    }
 }
 export async function FetchDriversLastNameOf(team){
-    const drivers = await fetch(`https://api.jolpi.ca/ergast/f1/2025/constructors/${team}/drivers/`);
-    const res = await drivers.json();
-    const result =  res.MRData.DriverTable.Drivers;
-    return result.map(drivers => drivers.familyName)
+    try {
+        const drivers = await fetch(`https://api.jolpi.ca/ergast/f1/2025/constructors/${team}/drivers/`);
+        const res = await drivers.json();
+        const result = res.MRData.DriverTable.Drivers;
+        return result.map(drivers => drivers.familyName)
+    }catch(err) {
+        console.error("Failed to fetchDriversLastName", err.message);
+        return [];
+    }
 }
 export async function FetchDriversBirthday(year){
-    const driver = await FetchDriverStandings1(year);
-    return driver.map(i=>i.Driver.dateOfBirth);
+    try {
+        const driver = await FetchDriverStandings1(year);
+        return driver.map(i => i.Driver.dateOfBirth);
+    }catch(err) {
+        console.error("Failed to fetchDriversBirthday", err.message);
+        return [];
+    }
 }
 export async function FetchDriversNationality(year){
-    const driver = await FetchDriverStandings1(year);
-    return driver.map(i=>i.Driver.nationality)
+    try {
+        const driver = await FetchDriverStandings1(year);
+        return driver.map(i => i.Driver.nationality)
+    }catch(err) {
+        console.error("Failed to fetchDriversNationality", err.message);
+        return [];
+    }
 }
 export async function FetchDriversID(year){
-    const driver = await FetchDriverStandings1(year);
-    return driver.map(i=>i.Driver.driverId)
+    try {
+        const driver = await FetchDriverStandings1(year);
+        return driver.map(i => i.Driver.driverId)
+    }catch(err) {
+        console.error("Failed to fetchDriversID", err.message);
+        return [];
+    }
 }
 export async function FetchConstructorsNationality(Cyear){
-    const constructors = await FetchConstructorsStandings(Cyear);
-    return constructors.map(i=>i.Constructor.nationality)
+    try {
+        const constructors = await FetchConstructorsStandings(Cyear);
+        return constructors.map(i => i.Constructor.nationality)
+    }catch(err) {
+        console.error("Failed to fetchConstructorsNationality", err.message);
+        return [];
+    }
 }
 export async function RaceData(){
     return {
@@ -235,18 +426,27 @@ export async function ResultData(round){
 }
 
 export async function FetchDriverResults(year, driverId) {
-    const res = await fetch(`https://api.jolpi.ca/ergast/f1/${year}/drivers/${driverId}/results/`);
-    const data = await res.json();
-    const races = data.MRData.RaceTable.Races;
-    const points = races.map(race => parseFloat(race.Results[0].points));
-    return points;
+    try {
+        const res = await fetch(`https://api.jolpi.ca/ergast/f1/${year}/drivers/${driverId}/results/`);
+        const data = await res.json();
+        const races = data.MRData.RaceTable.Races;
+        const points = races.map(race => parseFloat(race.Results[0].points));
+        return points;
+    }catch (err){
+        console.error("Failed to fetchDriverResults", err.message);
+        return [];
+    }
 }
 
 export async function FetchConstructorsResults(year, constructorId) {
-    const res = await fetch(`https://api.jolpi.ca/ergast/f1/${year}/constructors/${constructorId}/results/`);
-    const data = await res.json();
-    const races = data.MRData.RaceTable.Races;
-    const points = races.map(race => race.Results.reduce((sum, result) => sum + parseFloat(result.points), 0));
-    return points;
+    try {
+        const res = await fetch(`https://api.jolpi.ca/ergast/f1/${year}/constructors/${constructorId}/results/`);
+        const data = await res.json();
+        const races = data.MRData.RaceTable.Races;
+        const points = races.map(race => race.Results.reduce((sum, result) => sum + parseFloat(result.points), 0));
+        return points;
+    }catch(err){
+        console.errot("Failed to fetchConstructorsResults", err.message);
+        return [];
+    }
 }
-
