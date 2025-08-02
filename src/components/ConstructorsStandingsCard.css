@@ -1,0 +1,81 @@
+.CSH-input{
+    float: right;
+    width: 375px;
+    list-style: none;
+    background-color: darkslateblue;
+    padding: 5px;
+    display: grid;
+    grid-template-columns: auto auto;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+.CSH-input li{
+    text-align: center;
+    padding: 8px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+.CSH-CloseBtn:hover{
+    background-color: darkred;
+    transition: 0.2s;
+}
+.CSH-Btn:hover{
+    background-color: rgb(28, 23, 64);
+    transition: 0.2s;
+}
+.CSH-lists img{
+    width: 350px;
+    margin-top: 25px;
+}
+.CSH-lists{
+    display: grid;
+    grid-template-columns: 25% 10% 13% 10% 10% auto ;
+    background-color: darkslateblue ;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+.CSH-lists li{
+    text-align: center;
+    list-style: none;
+    margin-top: 50px;
+    font-size: 18px;
+}
+.CSH-lists ul{
+    background-color: rgb(48, 41, 97);
+    margin-left: 5px;
+    padding: 10px;
+    width: 350px;
+    border-radius: 5px;
+    box-shadow: 12px 12px 10px rgba(0, 0, 0, 0.53);
+}
+.CSH-lists ul:hover{
+    transition: 0.2s;
+    cursor: pointer;
+    background-color:rgb(28, 23, 64);
+    box-shadow: 17px 17px 10px rgba(0, 0, 0, 0.53);
+}
+
+.CSH-lists li a{
+    color: rgb(28, 23, 64);
+    padding: 3px;
+    border-radius: 5px;
+    font-style: oblique;
+}
+.CSH-lists li img{
+    margin-top: -4px;
+    width: 90px;
+}
+.CSH-Drivers {
+    display: grid;
+    grid-template-columns: auto auto;
+    background-color: rgb(48, 41, 97);
+    margin: 15px;
+    border-radius: 5px;
+    box-shadow: 12px 12px 10px rgba(0, 0, 0, 0.53);
+}
+.CSH-Drivers li a{
+    color:white;
+}
+.CSH-Drivers li{
+    margin-top: 0px;
+}

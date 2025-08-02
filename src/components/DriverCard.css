@@ -1,0 +1,65 @@
+.driverstandings{
+    margin-top: 20px;
+    color: white;
+    background-color:darkslateblue;
+    padding: 11.5px;
+    font-family:Arial, Helvetica, sans-serif;
+    border-radius: 3px;
+    width: 98.5%;
+}
+.heading{
+    display: grid;
+    grid-template-columns: 20% 18% auto auto auto;
+    padding: 5px;
+}
+.heading li{
+    list-style: none;
+    text-align: center;
+}
+.inputs{
+    display: grid;
+    grid-template-columns: auto 50% auto;
+}
+#year{
+    border-radius: 2px;
+    border: none;
+    margin-right: 100px;
+    background-color: rgb(47, 39, 98);
+    padding: 5px;
+    color: white;
+}
+#Btnload{
+    background-color: white;
+    color: #242424;
+    cursor: pointer;
+    border-radius: 2px;
+    border: none;
+}
+#Btnload:hover{
+    color: white;
+    background-color:rgb(47, 39, 98);
+    transition: 0.3s;
+}
+.listdiv{
+    display: grid;
+    grid-template-columns: auto auto auto auto auto;
+    border-radius: 5px;
+    padding: 5px;
+    background-color: rgb(26, 21, 66);
+}
+
+.listdiv li{
+    text-align: center;
+    list-style: none;
+    font-size: 14px;
+    padding: 2px;
+}
+#drivers{
+    background-color:rgb(47, 39, 98);
+}
+#points{
+    background-color: rgb(47, 39, 98);
+}
+#constructors{
+    background-color: rgb(47, 39, 98);
+}

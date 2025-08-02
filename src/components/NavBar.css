@@ -1,0 +1,19 @@
+.nav-bar{
+    background-color: darkslateblue;
+    border-radius: 5px;
+    list-style: none;
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    padding: 2px;
+    text-align: center;
+}
+.nav-bar li{
+    cursor: pointer;
+    margin: 2px;
+    padding: 10px;
+    border-radius: 3px;
+}
+.nav-bar li:hover{
+    transition: 0.2s;
+    background-color: rgb(47, 39, 98);
+}

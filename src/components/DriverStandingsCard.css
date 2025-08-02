@@ -1,0 +1,82 @@
+.DSH-input{
+    float: right;
+    width: 350px;
+    list-style: none;
+    background-color: darkslateblue;
+    padding: 5px;
+    display: grid;
+    grid-template-columns: auto auto;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+.DSH-input li{
+    text-align: center;
+    padding: 8px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.DriverData li{
+    list-style: none;
+    height: 104px;
+    text-align: center;
+}
+.D-img img{
+    width: 120px;
+    height: 130px;
+}
+
+.D-img li{
+    margin: 5px;
+    padding: 5px;
+}
+.lists{
+    display: grid;
+    grid-template-columns: 10% 10% 10% 8% 8% 8% 8% 12.5% auto;
+    background-color: darkslateblue;
+    margin-bottom:10px;
+    border-radius: 5px;
+}
+.lists li {
+    margin-top: 40px;
+    font-size: 18px;
+}
+.lists ul{
+    background-color: rgb(48, 41, 97);
+    border-radius: 5px;
+    margin-left: 5px;
+    padding: 5px;
+    box-shadow: 12px 12px 10px rgba(0, 0, 0, 0.53);
+}
+.lists ul:hover  {
+  background-color: rgb(28, 23, 64);
+    transition: 0.2s;
+    cursor: pointer;
+    box-shadow: 17px 15px 13px rgba(0, 0, 0, 0.53);
+}
+
+.lists li a{
+    color: rgb(28, 23, 64);
+    padding: 3px;
+    border-radius: 5px;
+    font-style: oblique;
+}
+.DHS-CloseBtn:hover{
+    background-color: darkred;
+    transition: 0.2s;
+}
+.DSH-Btn:hover{
+    background-color: rgb(28, 23, 64);
+    transition: 0.2s;
+}
+.CAR img{
+    width: 340px;
+    height: 82px;
+    margin-left: 15px;
+    margin-top: 20px;
+}
+.CAR{
+    background-color: rgb(48, 41, 97);
+    border-radius: 5px;
+    box-shadow: 12px 12px 10px rgba(0, 0, 0, 0.53);
+}

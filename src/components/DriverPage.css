@@ -1,0 +1,57 @@
+.DP-CloseBtn button{
+    background-color:darkred;
+    border:none;
+    padding: 10px;
+    width: 200px;
+    border-radius: 5px;
+    margin-top: 10px;
+    float: right;
+    cursor: pointer;
+}
+.DP-CloseBtn button:hover{
+    transition: 0.2s;
+    background-color: red;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.42);
+}
+
+.driverIMG img{
+    margin-left: -50px;
+    width:200px;
+    height:210px;
+}
+.carIMG img{
+    margin-top: 15px;
+    margin-left: 15%;
+    width:1100px;
+
+}
+.Driver-div2{
+    padding: 10px;
+    list-style: none;
+    border-radius: 10px;
+    margin-top: 56px;
+}
+.Driver-Info {
+    display: grid;
+    grid-template-columns: 15% auto auto auto auto auto auto auto;
+    text-align: center;
+    padding: 20px;
+    background-color: #242424;
+    border-radius: 5px;
+    box-shadow: inset 10px 10px 100px -48px rgba(0, 0, 0, 0.69);
+}
+.Driver-Info li {
+    margin-top: 75px;
+}
+.Driver-Info li a {
+    color: darkgrey;
+    font-style: oblique;
+}
+.Driver-div{
+    box-shadow: inset 1px 1px 1000px -50px rgba(0, 0, 0, 0.69);
+}
+.chart-div{
+    border-radius: 5px;
+    margin-top: 10px;
+    box-shadow: inset 10px 10px 100px -48px rgba(0, 0, 0, 0.69);
+}

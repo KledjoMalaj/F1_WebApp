@@ -1,0 +1,75 @@
+.Card{
+    padding: 10px;
+    width: 600px;
+}
+.Card button{
+    width: 200px;
+    margin-left: 30px;
+    background-color: darkred;
+    border: none;
+    border-radius: 2px;
+}
+.Card button:hover{
+    transition: 0.2s;
+    background-color: red;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.42);
+}
+.Lists{
+    display: grid;
+    grid-template-columns: 13% 13% 13% 19% 13% 27%;
+}
+.Lists li {
+    text-align: center;
+    list-style-type: none;
+}
+.heading1{
+    list-style: none;
+    display: grid;
+    grid-template-columns: 13% 13% 13% 19% 13% 27% ;
+}
+.heading1 li{
+    margin-left: -5px;
+    text-align: center;
+}
+.input{
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+
+.positions{
+    background-color: darkslateblue ;
+    border-radius: 5px;
+    padding: 2px;
+}
+.number{
+    background-color: darkslateblue ;
+    border-radius: 5px;
+    padding: 2px;
+}
+.points{
+    background-color: darkslateblue ;
+    border-radius: 5px;
+    padding: 2px;
+}
+.ResultPupUp-container {
+    position: fixed;
+    top: -20px;
+    left: -20px;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+.BigDady {
+    background-color: rgb(29, 24, 69);
+    border-radius: 12px;
+    padding: 20px;
+    width: 610px;
+    max-width: 800px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    z-index: 1001;
+}
+

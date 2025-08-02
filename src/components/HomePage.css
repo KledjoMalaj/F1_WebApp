@@ -1,0 +1,76 @@
+.HP-Card{
+    display: grid;
+    grid-template-columns:auto auto;
+    background-color: #242424;
+    padding: 10px;
+    border-radius: 5px;
+}
+.HP-IMG img{
+    width:550px;
+}
+.HP-IMG2 img{
+    width:550px;
+}
+.NextRace{
+    margin-top: 10px;
+    background-color: rgb(48, 41, 97);
+    border-radius: 5px;
+    padding: 10px;
+    display: grid;
+    grid-template-columns:auto 30%;
+}
+.NextRace .HP-Card{
+    margin-right: 10px;
+}
+
+.HP-Race-Info{
+    margin-top: 45px;
+    list-style: none;
+}
+.HP-Race-Info li a{
+    font-style: oblique;
+    color: darkgrey;
+}
+
+.LastRace{
+    margin-top: 10px;
+    background-color: rgb(48, 41, 97);
+    border-radius: 5px;
+    padding: 10px;
+    display: grid;
+    grid-template-columns:auto 30%;
+
+}
+.LastRace .HP-Card{
+    margin-right: 10px;
+}
+.HP-Winers{
+    background-color: #242424;
+    padding: 10px;
+    border-radius: 5px;
+}
+.HP-Winers ul {
+    display: grid;
+    grid-template-columns:20% 20% 30% 30% ;
+    list-style-type: none;
+    padding: 5px;
+    margin-left: 0px;
+}
+.HP-Winers ul li{
+    text-align: center;
+}
+
+.HP-Winers-labels{
+    background-color: rgb(48, 41, 97);
+    border-radius: 5px;
+}
+.HP-Chart{
+    margin-top: 10px;
+    background-color: rgb(48, 41, 97);
+    padding: 10px;
+    border-radius: 5px;
+}
+.HP-Chart div{
+    background-color: #242424;
+    border-radius: 5px;
+}

@@ -1,0 +1,38 @@
+.CAR-IMG img{
+    width: 1000px;
+    margin-left: 15%;
+}
+.CP-D1 img{
+    width: 200px;
+    height: 210px;
+}
+.CP-D2 img{
+    width: 200px;
+    height: 210px;
+}
+.CP-Body{
+    list-style: none;
+    margin-top: 55px;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: inset 10px 10px 100px -48px rgba(0, 0, 0, 0.69);
+}
+.CP-INFO{
+    margin-top: 10px;
+    background-color: #242424;
+    border-radius: 5px;
+    display: grid;
+    grid-template-columns:auto auto auto auto auto auto auto auto;
+    padding: 10px;
+    text-align: center;
+    box-shadow: inset 10px 10px 100px -48px rgba(0, 0, 0, 0.69);
+}
+.CP-INFO li{
+    margin-top: 80px;
+}
+.CP-INFO li a{
+    color: darkgrey;
+    padding: 3px;
+    border-radius: 5px;
+    font-style: oblique;
+}

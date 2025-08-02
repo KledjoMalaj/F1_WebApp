@@ -1,0 +1,68 @@
+.ConstuctorsStandings{
+    margin-top: 20px;
+    padding: 11.5px;
+    color: white;
+    background-color:darkslateblue;
+    font-family:Arial, Helvetica, sans-serif;
+    border-radius: 3px;
+    width: 98.5%;
+
+}
+.ListC{
+    display: grid;
+    grid-template-columns: auto auto auto auto ;
+    border-radius: 5px;
+    padding: 5px;
+    background-color: rgb(26, 21, 66);
+}
+.ListC li{
+    text-align: center;
+    list-style: none;
+    font-size: 15px;
+    padding: 2px;
+}
+.headingC{
+    list-style: none;
+    display: grid;
+    grid-template-columns: 24% 28% auto auto ;
+}
+.headingC li{
+    float: left;
+    text-align: center;
+    padding:2px;
+}
+#Name{
+    background-color: rgb(47, 39, 98);
+    padding: 5px;
+}
+#Wins{
+    background-color: rgb(47, 39, 98);
+    padding: 5px;
+}
+#Points{
+    padding: 5px;
+}
+#Cyear{
+    border-radius: 2px;
+    border: none;
+    margin-right: 100px;
+    padding: 5px;
+    background-color: rgb(47, 39, 98);
+    color: white;
+}
+#CBtnload{
+    background-color: white;
+    color: #242424;
+    cursor: pointer;
+    border-radius: 2px;
+    border: none;
+}
+#CBtnload:hover{
+    color: white;
+    background-color:rgb(47, 39, 98);
+    transition: 0.3s;
+}
+.inputsC{
+    display: grid;
+    grid-template-columns: auto 50% auto;
+}
