@@ -55,7 +55,7 @@ function DriverStandingsCard(){
             function GetCImg(){
                 const img = [];
                 for(let i=0; i<20; i++){
-                    img.push(`<img src="src/assets/Cars/${constructors[i]}.png" alt="name"/>`);
+                    img.push(`<img src="/Cars/${constructors[i]}.png" alt="name"/>`);
                 }
                 return img;
             }
