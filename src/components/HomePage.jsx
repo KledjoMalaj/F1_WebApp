@@ -3,8 +3,6 @@ import {FetchPractices, FetchQualifying, RaceData, ResultData} from "../APIs/erg
 import "./HomePage.css"
 import HomePageChart from "./Charts/HomePageChart.jsx";
 
-
-
 function HomePage(){
     const [indexFuture, setIndexFuture] = useState(null);
     const [indexPast, setIndexPast] = useState(null);
@@ -52,8 +50,6 @@ function HomePage(){
 
            const practices = await FetchPractices(indexofFuture+1);
            const qualifying = await FetchQualifying(indexofFuture+1);
-           console.log(qualifying);
-
 
            setRaceDate(futureRace);
            setRaceName(racedata.name);
@@ -63,10 +59,8 @@ function HomePage(){
            setRaceCity(racedata.city);
 
            setIndexFuture(indexofFuture)
-
            setpastDate(pastRaceDate);
            setIndexPast(indexofPast)
-
            setwinner(resultData)
            setPractice(practices)
            setqualifying(qualifying)

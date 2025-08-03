@@ -212,7 +212,7 @@ export async function FetchDriverIMG2(team){
         const names = result.map(drivers => drivers.givenName)
         const images = []
         for (let i = 0; i < 20; i++) {
-            images.push(`<img src="src/assets/Drivers/${names[i]}.png" alt="name"/>`)
+            images.push(`<img src="/Drivers/${names[i]}.png" alt="name"/>`)
         }
         return images
     }catch (err){
