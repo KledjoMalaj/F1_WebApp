@@ -30,14 +30,14 @@ function DriverPage({driver}) {
         {page === "DP"  &&
          <>
          <div className="DP-CloseBtn">
+         <h1>Driver Page</h1>
          <button onClick={() => (setPage("DS"))}>CLOSE</button>
          </div>
 
          <div className="Driver-div" style={{backgroundColor: backgroundColor,borderRadius: "5px"}} >
-
              <div className="Driver-div2">
                 <div className="Driver-Info">
-                    <ul className="driverIMG" dangerouslySetInnerHTML={{__html:driver.image}} />
+                    <li className="driverIMG" dangerouslySetInnerHTML={{__html:driver.image}} />
                     <li><a>NAME</a><br></br><br></br>            {driver.name} {driver.lastname}</li>
                     <li><a>NUMBER</a><br></br><br></br>          {driver.number}</li>
                     <li><a>POINTS</a><br></br><br></br>          {driver.points}</li>

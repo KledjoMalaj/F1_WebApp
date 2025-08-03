@@ -1,15 +1,15 @@
 .HP-Card{
     display: grid;
-    grid-template-columns:auto auto;
+    grid-template-columns:50% auto;
     background-color: #242424;
     padding: 10px;
     border-radius: 5px;
 }
 .HP-IMG img{
-    width:550px;
+    width:100%;
 }
 .HP-IMG2 img{
-    width:550px;
+    width:100%;
 }
 .NextRace{
     margin-top: 10px;
@@ -24,7 +24,8 @@
 }
 
 .HP-Race-Info{
-    margin-top: 45px;
+    margin-left: 40%;
+    margin-top: 15px;
     list-style: none;
 }
 .HP-Race-Info li a{
@@ -51,10 +52,10 @@
 }
 .HP-Winers ul {
     display: grid;
-    grid-template-columns:20% 20% 30% 30% ;
+    grid-template-columns:auto auto auto auto ;
     list-style-type: none;
     padding: 5px;
-    margin-left: 0px;
+
 }
 .HP-Winers ul li{
     text-align: center;

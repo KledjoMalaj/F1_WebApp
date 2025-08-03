@@ -446,7 +446,7 @@ export async function FetchConstructorsResults(year, constructorId) {
         const points = races.map(race => race.Results.reduce((sum, result) => sum + parseFloat(result.points), 0));
         return points;
     }catch(err){
-        console.errot("Failed to fetchConstructorsResults", err.message);
+        console.error("Failed to fetchConstructorsResults", err.message);
         return [];
     }
 }
