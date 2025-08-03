@@ -166,7 +166,7 @@ export async function FetchCircuits(){
         const ret = races.map(races => races.raceName)
         const images = []
         for (let i = 0; i < ret.length; i++) {
-            images.push(`<img src="src/assets/map/${ret[i]}.png" alt="name"/>`)
+            images.push(`<img src="/map/${ret[i]}.png" alt="name"/>`)
         }
         return images
     }catch(err) {
@@ -181,7 +181,7 @@ export async function FetchDriverIMG(year){
         const names = drivers.map(driver => driver.Driver.givenName)
         const images = []
         for (let i = 0; i < 20; i++) {
-            images.push(`<img src="src/assets/Drivers/${names[i]}.png" alt="name"/>`)
+            images.push(`<img src="/Drivers/${names[i]}.png" alt="name"/>`)
         }
         return images
     }catch(err) {
@@ -195,7 +195,7 @@ export async function FetchConstructorsIMG(Cyear){
         const names = constructors.map(c => c.Constructor.name)
         const images = []
         for (let i = 0; i < names.length; i++) {
-            images.push(`<img src="src/assets/Cars/${names[i]}.png" alt="name"/>`)
+            images.push(`<img src="/Cars/${names[i]}.png" alt="name"/>`)
         }
         return images;
     }catch(err) {
