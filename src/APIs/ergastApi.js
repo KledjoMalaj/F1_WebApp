@@ -473,3 +473,14 @@ export async function FetchPractices(round) {
         };
     }
 }
+export async function FetchQualifying(round){
+    try{
+        const res = await fetch(`https://api.jolpi.ca/ergast/f1/2025/${round}/races/`)
+        const data = await res.json();
+        const races = data.MRData.RaceTable.Races[0];
+        return races.Qualifying
+    }catch (err){
+        console.error("Failed to fetchQualifying", err.message);
+        return [];
+    }
+}

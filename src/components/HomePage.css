@@ -89,4 +89,16 @@
 .HP-Race-Practice{
     display: grid;
     grid-template-columns:auto auto auto;
+    background-color: rgb(48, 41, 97);
+    padding: 5px;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+.Qualifying{
+    margin-top: 10px;
+    list-style-type: none;
+    text-align: center;
+    background-color:  rgb(48, 41, 97);
+    padding: 10px;
+    border-radius: 5px;
 }

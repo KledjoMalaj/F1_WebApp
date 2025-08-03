@@ -1,5 +1,5 @@
 import {useEffect, useState} from "react";
-import {FetchPractices, RaceData, ResultData} from "../APIs/ergastApi.js";
+import {FetchPractices, FetchQualifying, RaceData, ResultData} from "../APIs/ergastApi.js";
 import "./HomePage.css"
 import HomePageChart from "./Charts/HomePageChart.jsx";
 
@@ -9,6 +9,7 @@ function HomePage(){
     const [indexFuture, setIndexFuture] = useState(null);
     const [indexPast, setIndexPast] = useState(null);
     const [pastDate, setpastDate] = useState(null);
+    const [qualifying, setqualifying] = useState([]);
 
     const [practice, setPractice] = useState({
         first: [],
@@ -50,8 +51,8 @@ function HomePage(){
            const resultData = await ResultData(racedata.round[indexofPast]);
 
            const practices = await FetchPractices(indexofFuture+1);
-
-
+           const qualifying = await FetchQualifying(indexofFuture+1);
+           console.log(qualifying);
 
 
            setRaceDate(futureRace);
@@ -68,9 +69,11 @@ function HomePage(){
 
            setwinner(resultData)
            setPractice(practices)
+           setqualifying(qualifying)
        }
        load();
    },[])
+
 
     return (
         <>
@@ -90,7 +93,8 @@ function HomePage(){
 
                 </div>
                 <div className="HP-Race-Stats">
-                    <a>Stats :</a><br></br>
+                    <br></br>
+                    <a>Practice :</a><br></br>
 
                     <div className="HP-Race-Practice">
 
@@ -112,6 +116,12 @@ function HomePage(){
                             <li>Time: {practice.third[0]?.time}</li>
                         </ul>
 
+                    </div><br></br>
+
+                    <a>Qualifying :</a>
+                    <div className="Qualifying">
+                        <li>Date : {qualifying.date}</li>
+                        <li>Time : {qualifying.time}</li>
                     </div>
 
                 </div>
