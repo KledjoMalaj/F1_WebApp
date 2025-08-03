@@ -1,5 +1,5 @@
 import {useEffect, useState} from "react";
-import {RaceData, ResultData} from "../APIs/ergastApi.js";
+import {FetchPractices, RaceData, ResultData} from "../APIs/ergastApi.js";
 import "./HomePage.css"
 import HomePageChart from "./Charts/HomePageChart.jsx";
 
@@ -9,6 +9,12 @@ function HomePage(){
     const [indexFuture, setIndexFuture] = useState(null);
     const [indexPast, setIndexPast] = useState(null);
     const [pastDate, setpastDate] = useState(null);
+
+    const [practice, setPractice] = useState({
+        first: [],
+        second: [],
+        third: []
+    });
 
     const [winner, setwinner] = useState({
         position: [],
@@ -31,20 +37,20 @@ function HomePage(){
        async  function load(){
            const racedata = await RaceData();
 
-
            const date = racedata.date;
-
-
            const today = new Date();
            const formattedDate = today.toISOString().split('T')[0];
            const futureRace = (date.filter(i => i>formattedDate).map(date => date)[0])
            const indexofFuture = date.indexOf(futureRace);
 
-           const pastRace = (date.filter(i => i<formattedDate));
+           const pastRace = (date.filter(i => i<=formattedDate));
            const pastRaceDate = pastRace.map(date => date)[pastRace.length-1];
            const indexofPast = date.indexOf(pastRaceDate);
 
            const resultData = await ResultData(racedata.round[indexofPast]);
+
+           const practices = await FetchPractices(indexofFuture+1);
+
 
 
 
@@ -61,7 +67,7 @@ function HomePage(){
            setIndexPast(indexofPast)
 
            setwinner(resultData)
-
+           setPractice(practices)
        }
        load();
    },[])
@@ -81,6 +87,32 @@ function HomePage(){
                     <li><a>COUNTRY :</a>     {raceCountry[indexFuture]}</li>  <br></br>
                     <li><a>CITY :</a>        {raceCity[indexFuture]}</li>
                 </div>
+
+                </div>
+                <div className="HP-Race-Stats">
+                    <a>Stats :</a><br></br>
+
+                    <div className="HP-Race-Practice">
+
+                        <ul className="FirstP">
+                            <li><strong>First Practice</strong></li>
+                            <li>Date: {practice.first[0]?.date}</li>
+                            <li>Time: {practice.first[0]?.time}</li>
+                        </ul>
+
+                        <ul className="SecondP">
+                            <li><strong>Second Practice</strong></li>
+                            <li>Date: {practice.second[0]?.date}</li>
+                            <li>Time: {practice.second[0]?.time}</li>
+                        </ul>
+
+                        <ul className="ThirdP">
+                            <li><strong>Third Practice</strong></li>
+                            <li>Date: {practice.third[0]?.date}</li>
+                            <li>Time: {practice.third[0]?.time}</li>
+                        </ul>
+
+                    </div>
 
                 </div>
 

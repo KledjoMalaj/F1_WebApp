@@ -34,7 +34,7 @@ function HomePageChart() {
 
     useEffect(() => {
         async function fetchData() {
-            const ids = await FetchCID(2025); // e.g. ["ferrari", "mercedes", ...]
+            const ids = await FetchCID(2025);
             const raceNames = await FetchRaceName(2025);
             const racedata = await RaceData();
             const racedate = racedata.date;
@@ -43,7 +43,7 @@ function HomePageChart() {
             const formattedDate = today.toISOString().split('T')[0];
 
             const pastIndexes = racedate
-                .map((date, index) => (date < formattedDate ? index : null))
+                .map((date, index) => (date <= formattedDate ? index : null))
                 .filter(index => index !== null);
 
             const allConstructorPoints = await Promise.all(
@@ -61,7 +61,6 @@ function HomePageChart() {
         fetchData();
     }, []);
 
-    // Color mapping by constructor ID
     const teamColors = {
         "red_bull": "#1E41FF",
         "ferrari": "#DC0000",

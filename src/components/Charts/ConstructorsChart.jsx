@@ -40,7 +40,7 @@ function ConstructorsChart({ id, color }) {
             const today = new Date();
             const formattedDate = today.toISOString().split('T')[0];
             const pastIndexes = racedate
-                .map((date, index) => (date < formattedDate ? index : null))
+                .map((date, index) => (date <= formattedDate ? index : null))
                 .filter(index => index !== null);
 
             const pointsData = await FetchConstructorsResults(2025, id);

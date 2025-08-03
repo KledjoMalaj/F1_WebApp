@@ -52,18 +52,20 @@
 }
 .HP-Winers ul {
     display: grid;
-    grid-template-columns:auto auto auto auto ;
+    grid-template-columns: 20% 23% 23% 35%;
     list-style-type: none;
     padding: 5px;
 
 }
 .HP-Winers ul li{
     text-align: center;
+    float: left;
 }
 
 .HP-Winers-labels{
     background-color: rgb(48, 41, 97);
     border-radius: 5px;
+    list-style-type: none;
 }
 .HP-Chart{
     margin-top: 10px;
@@ -74,4 +76,17 @@
 .HP-Chart div{
     background-color: #242424;
     border-radius: 5px;
+}
+.HP-Race-Stats{
+    background-color: #242424;
+    padding: 10px;
+    border-radius: 5px;
+}
+.HP-Race-Practice li{
+    list-style-type:none;
+    margin-left: -40px;
+}
+.HP-Race-Practice{
+    display: grid;
+    grid-template-columns:auto auto auto;
 }
