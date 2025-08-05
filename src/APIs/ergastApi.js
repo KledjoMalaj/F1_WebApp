@@ -455,8 +455,6 @@ export async function FetchPractices(round) {
         const res = await fetch(`https://api.jolpi.ca/ergast/f1/2025/${round}/races/`);
         const data = await res.json();
         const races = data.MRData.RaceTable.Races;
-
-        // Safely extract only the first race (should only be one per round)
         const race = races[0];
 
         return {
