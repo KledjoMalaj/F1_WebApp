@@ -3,23 +3,17 @@
     background-color: darkslateblue;
     margin-top: 20px;
 }
-#raceMap img{
-    padding: 50px;
-    width: 250px;
-}
 #raceMap div{
     margin-top: 20px;
-    margin-left: 13px;
 }
 #raceMap img{
-    padding: 6px;
-    width: 310px;
+    width: 100%;
     background-color: rgb(48, 41, 97);
     border-radius: 10px;
 }
 #Map{
     display: grid;
-    grid-template-columns: 24.5% 24.5% 24.5% 24.5%;
+    grid-template-columns: auto auto auto auto;
 }
 
 #Map a{
@@ -37,24 +31,16 @@
     display: inline;
     color: aliceblue;
 }
+#Map div{
+    margin: 10px;
+}
 
 #Map div:hover {
-    margin-top: 20px;
-    transition: 0.5s;
+    transition: 0.3s;
     background-color: rgb(38, 27, 94);
     border-radius: 10px;
+}
 
-}
-#Map div:hover  img {
-    margin-top: -20px;
-    margin-right: -42px;
-    padding: 15px;
-    margin-left: -30px;
-    width: 360px;
-    transition: 0.2s;
-    background-color: rgb(29, 24, 69);
-    border-radius: 10px;
-}
 #prov li{
     margin-left: 4px;
     padding: 5px;
@@ -81,4 +67,13 @@
     left: 27.5%;
     border-radius: 5px;
     box-shadow: 17px 14px 10px rgba(0, 0, 0, 0.53);
+}
+@media (max-width: 1000px) {
+    #Map{
+        display: grid;
+        grid-template-columns: auto auto auto;
+    }
+    #raceMap img{
+        width: 100%;
+    }
 }

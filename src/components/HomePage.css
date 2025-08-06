@@ -24,7 +24,7 @@
 }
 
 .HP-Race-Info{
-    margin-left: 40%;
+    margin-left: 30%;
     margin-top: 15px;
     list-style: none;
 }
@@ -104,4 +104,46 @@
 }
 .HP-Race-Practice ul li {
     font-size: 90%;
+}
+@media (max-width: 1000px) {
+    .NextRace{
+        margin-top: 10px;
+        margin-bottom: 10px;
+        background-color: rgb(48, 41, 97);
+        border-radius: 5px;
+        padding: 10px;
+        display: grid;
+        grid-template-columns:auto;
+    }
+    .LastRace{
+        margin-top: 10px;
+        margin-bottom: 10px;
+        background-color: rgb(48, 41, 97);
+        border-radius: 5px;
+        padding: 10px;
+        display: grid;
+        grid-template-columns:auto ;
+    }
+
+    .HP-Race-Practice ul li {
+        font-size: 75%;
+    }
+    .HP-Winers ul li{
+        text-align: center;
+        float: left;
+        font-size: 80%;
+    }
+    .HP-Race-Info li a{
+        font-style: oblique;
+        color: darkgrey;
+        font-size: 80%;
+    }
+    .HP-Card{
+        display: grid;
+        grid-template-columns: auto;
+        background-color: #242424;
+        padding: 10px;
+        border-radius: 5px;
+    }
+
 }

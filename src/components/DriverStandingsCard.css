@@ -22,8 +22,7 @@
     text-align: center;
 }
 .D-img img{
-    width: 120px;
-    height: 130px;
+    width: 100%;
 }
 
 .D-img li{
@@ -32,7 +31,7 @@
 }
 .lists{
     display: grid;
-    grid-template-columns: 10% 10% 10% 8% 8% 8% 8% 12.5% auto;
+    grid-template-columns: 10% auto auto auto auto auto auto auto 30%;
     background-color: darkslateblue;
     margin-bottom:10px;
     border-radius: 5px;
@@ -70,13 +69,24 @@
     transition: 0.2s;
 }
 .CAR img{
-    width: 340px;
-    height: 82px;
-    margin-left: 15px;
-    margin-top: 20px;
+    width: 90%;
 }
 .CAR{
+    max-width: 500px;
+    min-width: 95px;
     background-color: rgb(48, 41, 97);
     border-radius: 5px;
     box-shadow: 12px 12px 10px rgba(0, 0, 0, 0.53);
+}
+@media (max-width: 1000px)  {
+    .CAR {
+        display: none;
+    }
+    .lists{
+        display: grid;
+        grid-template-columns: 10% auto auto auto auto auto auto auto;
+        background-color: darkslateblue;
+        margin-bottom:10px;
+        border-radius: 5px;
+    }
 }
