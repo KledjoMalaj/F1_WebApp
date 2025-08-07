@@ -124,9 +124,13 @@
         display: grid;
         grid-template-columns:auto ;
     }
+    .HP-Race-Stats{
+        margin-top: 10px;
+    }
 
     .HP-Race-Practice ul li {
-        font-size: 75%;
+        text-align: center;
+        font-size: 90%;
     }
     .HP-Winers ul li{
         text-align: center;
@@ -145,5 +149,7 @@
         padding: 10px;
         border-radius: 5px;
     }
-
+    .HP-Winers{
+        margin-top: 10px;
+    }
 }
