@@ -137,6 +137,10 @@
         float: left;
         font-size: 80%;
     }
+    .HP-Race-Info{
+        margin-top: 90px;
+    }
+
     .HP-Race-Info li a{
         font-style: oblique;
         color: darkgrey;
@@ -152,4 +156,5 @@
     .HP-Winers{
         margin-top: 10px;
     }
+
 }
