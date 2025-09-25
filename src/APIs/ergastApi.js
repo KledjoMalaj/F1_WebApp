@@ -440,16 +440,38 @@ export async function FetchDriverResults(year, driverId) {
 
 export async function FetchConstructorsResults(year, constructorId) {
     try {
-        const res = await fetch(`https://api.jolpi.ca/ergast/f1/${year}/constructors/${constructorId}/results/`);
-        const data = await res.json();
-        const races = data.MRData.RaceTable.Races;
-        const points = races.map(race => race.Results.reduce((sum, result) => sum + parseFloat(result.points), 0));
+        let allRaces = [];
+        let offset = 0;
+        const limit = 100;
+
+        while (true) {
+            const res = await fetch(
+                `https://api.jolpi.ca/ergast/f1/${year}/constructors/${constructorId}/results.json?limit=${limit}&offset=${offset}`
+            );
+            const data = await res.json();
+
+            const races = data.MRData.RaceTable.Races;
+            if (races.length === 0) break;
+
+            allRaces = allRaces.concat(races);
+
+            offset += limit;
+
+            const total = parseInt(data.MRData.total, 10);
+            if (allRaces.length >= total) break;
+        }
+
+        const points = allRaces.map(race =>
+            race.Results.reduce((sum, result) => sum + parseFloat(result.points), 0)
+        );
+
         return points;
-    }catch(err){
+    } catch (err) {
         console.error("Failed to fetchConstructorsResults", err.message);
         return [];
     }
 }
+
 export async function FetchPractices(round) {
     try {
         const res = await fetch(`https://api.jolpi.ca/ergast/f1/2025/${round}/races/`);
