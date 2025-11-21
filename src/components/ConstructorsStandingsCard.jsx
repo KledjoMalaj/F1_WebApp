@@ -52,21 +52,33 @@ function ConstructorsStandingsCard() {
                     return await FetchDriversLastNameOf(team);
                 })
             )
+
+
             const DriversIMGs = await Promise.all(
                 ID.map(async (team) => {
                     return await FetchDriverIMG2(team);
                 })
             )
 
-            if (allDrivers[3]) {
-                allDrivers[3] = allDrivers[3].slice(1, 3);
-                DriversLastName[3] = DriversLastName[3].slice(1, 3);
-                DriversIMGs[3] = DriversIMGs[3].slice(1, 3);
+
+            if (allDrivers[2] && allDrivers[2].length > 2) {
+                allDrivers[2] = allDrivers[2].slice(1, 3);
+                DriversLastName[2] = DriversLastName[2].slice(1, 3);
+
+                if (DriversIMGs[2] && DriversIMGs[2].length > 2) {
+                    DriversIMGs[2] = DriversIMGs[2].slice(1,3);
+                }
+
             }
-            if (allDrivers[9]) {
+
+            if (allDrivers[9] && allDrivers[9].length >= 3) {
                 allDrivers[9] = [allDrivers[9][0], allDrivers[9][2]];
                 DriversLastName[9] = [DriversLastName[9][0], DriversLastName[9][2]];
-                DriversIMGs[9] = [DriversIMGs[9][0], DriversIMGs[9][2]];
+
+                if (DriversIMGs[9] && DriversIMGs[9].length >= 3) {
+                    DriversIMGs[9] = [DriversIMGs[9][0], DriversIMGs[9][2]];
+                }
+
             }
 
             setDriversIMG(DriversIMGs)
