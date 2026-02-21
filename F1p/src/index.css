@@ -1,5 +1,6 @@
 @import 'tailwindcss';
 
 .navBarElm{
-  @apply text-indigo-950 px-12 py-2  hover:bg-indigo-950 hover:text-white rounded-b-lg cursor-pointer text-xl
+  @apply text-white px-12 py-2 hover:text-white rounded-b-lg cursor-pointer text-xl 
+  hover:bg-gray-950
 }

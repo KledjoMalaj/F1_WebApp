@@ -4,7 +4,7 @@ const baseUrl = "https://api.jolpi.ca/ergast/f1"
 
 export async function fetchDrivers(){
   try {
-  const res = await fetch(`${baseUrl}/${year}/driverstandings/`)
+  const res = await fetch(`${baseUrl}/${year}/driverstandings`)
   const data = await res.json()
 
   let driversArr = []
@@ -24,6 +24,32 @@ export async function fetchDrivers(){
 
     return driversArr
   } catch (err) {
+    return []
+  }
+}
+
+export async function fetchConstructors(){
+  try{
+    const res = await fetch(`${baseUrl}/${year}/constructorstandings`)
+    const data = await res.json()
+
+    let constructorArr = []
+
+    data.MRData.StandingsTable.StandingsLists[0].ConstructorStandings.map(team => {
+      let constructors = {
+        id:team.Constructor.constructorId,
+        name:team.Constructor.name,
+        nationality:team.Constructor.nationality,
+        points:team.points,
+        position:team.position,
+        wins:team.wins,
+      }
+
+      constructorArr.push(constructors)
+    })
+
+    return constructorArr
+  }catch (err){
     return []
   }
 }
