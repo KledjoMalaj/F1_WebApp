@@ -16,7 +16,7 @@ function DriverPage() {
   return(
     <>
       <div className='bg-gray-800 p-2'>
-        <h1 className='text-white font-mono text-center '>Drivers Page</h1>
+        <h1 className='text-white font-mono text-center text-3xl'>Drivers Page</h1>
 
         <div className='font-mono'>
           <div className='grid grid-cols-7 bg-gray-500 mx-2 my-2 p-3 rounded italic'>

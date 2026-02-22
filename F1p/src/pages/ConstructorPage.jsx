@@ -15,7 +15,7 @@ function ConstructorPage(){
   return(
     <>
       <div className='bg-gray-800 p-2 font-mono'>
-      <h1 className='text-white text-center font-mono'>Constructors Page</h1>
+      <h1 className='text-white text-center font-mono text-3xl'>Constructors Page</h1>
         <div className='bg-gray-500 grid grid-cols-6 m-2 p-3 rounded italic'>
           <h1></h1>
           <h1 className='text-center'>Position</h1>

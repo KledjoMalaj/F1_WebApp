@@ -1,5 +1,6 @@
-import images from "./driverImages.json"
-import teamImg from "./teamImages.json"
+import driversFile from "./driversData.json"
+import teamsFile from "./teamsData.json"
+import raceFile from "./racesData.json"
 
 const year = "2025"
 
@@ -34,7 +35,7 @@ export async function fetchDrivers(){
 export async function fetchImg(){
   const data = await fetchDrivers()
   const drivers = data.map(driver => {
-    const imageObj = images.find(img => img.driverId === driver.driverId)
+    const imageObj = driversFile.find(img => img.driverId === driver.driverId)
   return {
     ...driver,
     img:imageObj ? imageObj.img : null
@@ -72,7 +73,7 @@ export async function fetchConstructors(){
 export async function fetchTeamsImg(){
   const teams = await fetchConstructors()
   const data = teams.map(team => {
-    const imgObj = teamImg.find(img => img.teamId === team.id)
+    const imgObj = teamsFile.find(img => img.teamId === team.id)
     return {
       ...team,
       img:imgObj ? imgObj.img : null
@@ -80,3 +81,43 @@ export async function fetchTeamsImg(){
   })
   return data
 }
+
+export async function fetchRaces(){
+  try{
+  const res = await fetch(`${baseUrl}/${year}/races`)
+  const data = await res.json()
+  let racesArr = []
+
+  data.MRData.RaceTable.Races.map(race => {
+    let raceObj = {
+      round:race.round,
+      raceId:race.Circuit.circuitId,
+      raceName:race.raceName,
+      location:race.Circuit.Location.country,
+      circuit:race.Circuit.circuitName,
+      date:race.date,
+      time:race.time
+    }
+    racesArr.push(raceObj)
+  })
+
+  return racesArr
+
+  }catch (err){
+    return []
+  }
+}
+
+export async function fetchRaceImg(){
+  const races = await fetchRaces()
+  const data = races.map(race => {
+    const imgObj = raceFile.find(img => race.raceId === img.raceId)
+    return {
+      ...race,
+      img:imgObj ? imgObj.img : null
+    }
+  })
+
+  return data
+}
+
