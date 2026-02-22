@@ -1,4 +1,6 @@
-import images from "./images.json"
+import images from "./driverImages.json"
+import teamImg from "./teamImages.json"
+
 const year = "2025"
 
 const baseUrl = "https://api.jolpi.ca/ergast/f1"
@@ -65,4 +67,16 @@ export async function fetchConstructors(){
   }catch (err){
     return []
   }
+}
+
+export async function fetchTeamsImg(){
+  const teams = await fetchConstructors()
+  const data = teams.map(team => {
+    const imgObj = teamImg.find(img => img.teamId === team.id)
+    return {
+      ...team,
+      img:imgObj ? imgObj.img : null
+    }
+  })
+  return data
 }

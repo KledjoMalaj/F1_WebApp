@@ -32,7 +32,7 @@ function DriverPage() {
         {drivers.map(driver => (
         <div key={driver.position} className='bg-gray-400 mx-2 my-2 p-3 rounded grid grid-cols-7 hover:bg-gray-200 cursor-pointer'>
 
-              <div className="w-24 h-32 overflow-hidden mx-auto">
+              <div className="w-30 h-32 overflow-hidden mx-auto">
               <img className="w-full h-full object-cover object-top" src={driver.img}></img>
               </div>
 

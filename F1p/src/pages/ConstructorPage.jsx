@@ -1,4 +1,4 @@
-import {fetchConstructors} from "../Apis/apis.js"
+import {fetchTeamsImg} from "../Apis/apis.js"
 import React, {useEffect,useState} from "react"
 
 function ConstructorPage(){
@@ -6,7 +6,7 @@ function ConstructorPage(){
 
   useEffect(()=>{
     async function getData(){
-      const constructors = await fetchConstructors()
+      const constructors = await fetchTeamsImg()
       setTeams(constructors)
     }
     getData()
@@ -16,7 +16,8 @@ function ConstructorPage(){
     <>
       <div className='bg-gray-800 p-2 font-mono'>
       <h1 className='text-white text-center font-mono'>Constructors Page</h1>
-        <div className='bg-gray-500 grid grid-cols-5 m-2 p-3 rounded italic'>
+        <div className='bg-gray-500 grid grid-cols-6 m-2 p-3 rounded italic'>
+          <h1></h1>
           <h1 className='text-center'>Position</h1>
           <h1 className='text-center'>Name</h1>
           <h1 className='text-center'>Nationality</h1>
@@ -25,12 +26,16 @@ function ConstructorPage(){
         </div>
       <div>
         {teams.map(team => (
-          <div key={team.id} className="bg-gray-400 m-2 p-3 rounded grid grid-cols-5 hover:bg-gray-200 cursor-pointer">
-            <h1 key={team.id} className='text-center'>{team.position}</h1>
-            <h1 key={team.id} className='text-center'>{team.name}</h1>
-            <h1 key={team.id} className='text-center'>{team.nationality}</h1>
-            <h1 key={team.id} className='text-center'>{team.points}</h1>
-            <h1 key={team.id} className='text-center'>{team.wins}</h1>
+          <div key={team.id} className="bg-gray-400 m-2 p-3 rounded grid grid-cols-6 hover:bg-gray-200 cursor-pointer">
+             <div className="w-76 h-17 overflow-hidden mx-auto">
+                <img className='w-full h-full' src={team.img}></img>
+             </div>
+
+            <h1 key={team.id} className='text-center mt-5'>{team.position}</h1>
+            <h1 key={team.id} className='text-center mt-5'>{team.name}</h1>
+            <h1 key={team.id} className='text-center mt-5'>{team.nationality}</h1>
+            <h1 key={team.id} className='text-center mt-5'>{team.points}</h1>
+            <h1 key={team.id} className='text-center mt-5'>{team.wins}</h1>
           </div>
         ))}
       </div>
