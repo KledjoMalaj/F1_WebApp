@@ -2,7 +2,7 @@ import driversFile from "./driversData.json"
 import teamsFile from "./teamsData.json"
 import raceFile from "./racesData.json"
 
-const year = "2025"
+const year = "2026"
 
 const baseUrl = "https://api.jolpi.ca/ergast/f1"
 
@@ -28,6 +28,7 @@ export async function fetchDrivers(){
 
     return driversArr
   } catch (err) {
+    console.log(err)
     return []
   }
 }
@@ -66,6 +67,7 @@ export async function fetchConstructors(){
 
     return constructorArr
   }catch (err){
+    console.log(err)
     return []
   }
 }
@@ -104,6 +106,7 @@ export async function fetchRaces(){
   return racesArr
 
   }catch (err){
+    console.log(err)
     return []
   }
 }
@@ -121,3 +124,18 @@ export async function fetchRaceImg(){
   return data
 }
 
+export async function getPrevAndNextRace() {
+  const now = new Date();
+  const races = await fetchRaceImg();
+
+  const sorted = [...races].sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime());
+
+  const nextIndex = sorted.findIndex((race) => new Date(race.date) >= now);
+
+  const emptyRace = {}
+
+  return {
+    prevRace: nextIndex > 0 ? sorted[nextIndex - 1] : nextIndex === -1 ? sorted[sorted.length - 1] : emptyRace,
+    nextRace: nextIndex !== -1 ? sorted[nextIndex] : emptyRace,
+  };
+}
