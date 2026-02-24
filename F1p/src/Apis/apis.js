@@ -2,7 +2,7 @@ import driversFile from "./driversData.json"
 import teamsFile from "./teamsData.json"
 import raceFile from "./racesData.json"
 
-const year = "2026"
+const year = "2025"
 
 const baseUrl = "https://api.jolpi.ca/ergast/f1"
 
