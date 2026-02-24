@@ -1,7 +1,4 @@
-import { useState } from 'react'
 import {Router, Routes, Route, Link} from 'react-router-dom'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import HomePage from './pages/homePage.jsx'
 import DriverPage from './pages/Driverpage.jsx'
 import ConstructorPage from './pages/ConstructorPage.jsx'
