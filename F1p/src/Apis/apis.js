@@ -139,3 +139,22 @@ export async function getPrevAndNextRace() {
     nextRace: nextIndex !== -1 ? sorted[nextIndex] : emptyRace,
   };
 }
+
+export async function getResults(round){
+  const res = await fetch(`${baseUrl}/${year}/${round}/results`)
+  const data = await res.json()
+  const results = []
+  data.MRData.RaceTable.Races[0].Results.map(res => {
+    let data = {
+      firstName:res.Driver.givenName,
+      lastName:res.Driver.familyName,
+      team:res.Constructor.constructorId,
+      time:res.Time.time
+    }
+    results.push(data)
+  })
+  return results
+}
+
+
+
